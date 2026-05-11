@@ -162,13 +162,6 @@ export default {
   fetch(request: Request, env: Env, ctx: ExecutionContext) {
     const url = new URL(request.url);
 
-    const authHeader = request.headers.get("Authorization") || "";
-    const headerToken = authHeader.startsWith("Bearer ") ? authHeader.slice(7) : null;
-    const queryToken = url.searchParams.get("token");
-    if ((headerToken || queryToken) !== env.AUTH_TOKEN) {
-      return new Response("Unauthorized", { status: 401 });
-    }
-
     if (url.pathname === "/sse" || url.pathname === "/sse/message") {
       return MyMCP.serveSSE("/sse").fetch(request, env, ctx);
     }
