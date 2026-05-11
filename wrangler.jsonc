@@ -22,6 +22,13 @@
 			}
 		]
 	},
+"d1_databases": [
+  {
+    "binding": "DB",
+    "database_name": "wardrobe",
+    "database_id": "25ca0392-6cee-4934-8fef-09a36073460e"
+  }
+],
 	"observability": {
 		"enabled": true
 	}
